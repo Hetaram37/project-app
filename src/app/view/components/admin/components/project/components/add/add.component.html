@@ -1,0 +1,111 @@
+<div class="container">
+    <div class="row">
+      <div class="col-xl-6 col-md-6 col-sm-9 col-12 mx-auto my-5">
+        <button mdbBtn color="info" class="my-4" type="submit" (click)="getList()">Project list</button>
+        <!-- Card start -->
+        <div class="card">
+          <!-- Card header -->
+          <h5 class="card-header info-color white-text text-center py-4 text-upper z-depth-3 header-font-size">
+            <strong>Add new Project</strong>
+          </h5>
+          <!-- card body -->
+          <div class="card-body px-lg-5 pt-0">
+            <!-- Form start -->
+            <form [formGroup]="addProjectForm" (ngSubmit)="onSubmit()" class="text-color">
+  
+              <!-- title -->
+              <div class="md-form">
+                <input mdbInput mdbValidate formControlName="title" type="text" class="form-control" id="title">
+                <label for="title">Title</label>
+                <mdb-error *ngIf="title.invalid && (title.dirty || title.touched)">
+                  <div *ngIf="title.errors.required">
+                    Title is required.
+                  </div>
+                  <div *ngIf="title.errors.minLength">
+                    Title should be greater then 2 character
+                  </div>
+                  <div *ngIf="title.errors.maxLength">
+                    Title should be less then 25 character
+                  </div>
+                </mdb-error>
+                <mdb-success *ngIf="title.valid && (title.dirty || title.touched)">
+                </mdb-success>
+              </div>
+  
+              <!-- description -->
+              <div class="md-form">
+                <input mdbInput mdbValidate formControlName="description" type="text" class="form-control" id="description">
+                <label for="description">description</label>
+                <mdb-error *ngIf="description.invalid && (description.dirty || description.touched)">
+                  <div *ngIf="description.errors.required">
+                    description is required.
+                  </div>
+                  <div *ngIf="description.errors.minLength">
+                    Description should be greater then 2 character
+                  </div>
+                  <div *ngIf="description.errors.maxLength">
+                    Description should be less then 250 character
+                  </div>
+                </mdb-error>
+                <mdb-success *ngIf="description.valid && (description.dirty || description.touched)">
+                </mdb-success>
+              </div>
+
+              <!-- company_name -->
+              <div class="md-form">
+                <input mdbInput mdbValidate formControlName="company_name" type="text" class="form-control" id="company_name">
+                <label for="company_name">Company Name</label>
+                <mdb-error *ngIf="company_name.invalid && (company_name.dirty || company_name.touched)">
+                  <div *ngIf="company_name.errors.required">
+                    Company Name is required.
+                  </div>
+                  <div *ngIf="company_name.errors.minLength">
+                    Company Name should be greater then 2 character
+                  </div>
+                  <div *ngIf="company_name.errors.maxLength">
+                    Company Name should be less then 100 character
+                  </div>
+                </mdb-error>
+                <mdb-success *ngIf="company_name.valid && (company_name.dirty || company_name.touched)">
+                </mdb-success>
+              </div>
+
+              <!-- duration -->
+              <div class="md-form">
+                <input mdbInput mdbValidate formControlName="duration" type="number" class="form-control" id="duration">
+                <label for="duration">Duration</label>
+                <mdb-error *ngIf="duration.invalid && (duration.dirty || duration.touched)">
+                  <div *ngIf="duration.errors.required">
+                    Duration is required.
+                  </div>
+                  <div *ngIf="duration.errors.pattern">
+                    Enter duration in months as number
+                  </div>
+                </mdb-error>
+                <mdb-success *ngIf="duration.valid && (duration.dirty || duration.touched)">
+                </mdb-success>
+              </div>
+
+              <!-- cost -->
+              <div class="md-form">
+                <input mdbInput mdbValidate formControlName="cost" type="number" class="form-control" id="cost">
+                <label for="cost">cost</label>
+                <mdb-error *ngIf="cost.invalid && (cost.dirty || cost.touched)">
+                  <div *ngIf="cost.errors.required">
+                    cost is required.
+                  </div>
+                  <div *ngIf="cost.errors.pattern">
+                    Enter cost as number
+                  </div>
+                </mdb-error>
+                <mdb-success *ngIf="cost.valid && (cost.dirty || cost.touched)">
+                </mdb-success>
+              </div>
+  
+              <!-- Add button -->
+              <button mdbBtn color="info" block="true" class="my-4" type="submit" (keyup.enter)="onSubmit()">Add</button>
+            </form>
+          </div>
+        </div>
+      </div>
+  

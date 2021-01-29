@@ -1,0 +1,44 @@
+<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12
+   container-space text-left ml-3 pr-0">
+   <button mdbBtn color="info" class="my-4" type="submit" (click)="getList()">Employee list</button>
+  <table class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 table table-striped table-bordered p-0 mt-2" style="width: 95%;overflow-x: auto;">
+    <tbody *ngIf="employeeDetail">
+      <tr>
+          <td>
+            Name
+          </td>
+          <td>
+            {{employeeDetail.name}}
+          </td>
+      </tr>
+      <tr>
+          <td>
+            Email
+          </td>
+          <td>
+            {{employeeDetail.email}}
+          </td>
+      </tr>
+      <tr>
+        <td>
+            Contact
+        </td>
+        <td>
+            {{employeeDetail.contact}}
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Technologies
+        </td>
+        <td>
+          <div *ngFor="let skill of employeeDetail.technologies">
+            {{skill.value}}
+          </div>
+        </td>
+    </tr>
+    </tbody>
+  </table>
+
+</div>
+

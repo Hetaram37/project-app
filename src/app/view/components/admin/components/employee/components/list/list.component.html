@@ -1,0 +1,37 @@
+<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12
+   container-space text-left ml-3 pr-0">
+   <button mdbBtn color="info" class="my-4" type="submit" (click)="addNewEmployee()">Add new Employee</button>
+
+  <table class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 table table-striped table-bordered p-0" style="width: 95%;overflow-x: auto;">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Contact</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let employee of employeeList">
+        <td>{{employee.name}}</td>
+        <td>{{employee.email}}</td>
+        <td>{{employee.contact}}</td>
+        <td>
+           <div class="row col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+              <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-4">
+               <mdb-icon fas icon="pencil-alt" class="text-warning font-bold cursor-pointer" (click)="updateEmployee(employee._id)"></mdb-icon>
+              </div>
+              <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-4">
+               <mdb-icon far icon="trash-alt" class="text-danger font-bold cursor-pointer" (click)="removeemployee(employee._id)"></mdb-icon>
+              </div>
+              <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-4">
+                <mdb-icon far icon="eye" class="text-info font-bold cursor-pointer" (click)="seeEmployee(employee._id)"></mdb-icon>
+               </div>
+           </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
+

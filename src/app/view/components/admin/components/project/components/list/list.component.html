@@ -1,0 +1,39 @@
+<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12
+   container-space text-left ml-3 pr-0">
+   <button mdbBtn color="info" class="my-4" type="submit" (click)="addNewProject()">Add new project</button>
+
+  <table class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 table table-striped table-bordered p-0" style="width: 95%;overflow-x: auto;">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Company Name</th>
+        <th>Cost</th>
+        <th>Duration</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let project of projectList">
+        <td>{{project.title}}</td>
+        <td>{{project.company_name}}</td>
+        <td>{{project.cost | currency}}</td>
+        <td>{{project.duration}}</td>
+        <td>
+           <div class="row col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+              <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-4">
+               <mdb-icon fas icon="pencil-alt" class="text-warning font-bold cursor-pointer" (click)="updateProject(project._id)"></mdb-icon>
+              </div>
+              <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-4">
+               <mdb-icon far icon="trash-alt" class="text-danger font-bold cursor-pointer" (click)="removeproject(project._id)"></mdb-icon>
+              </div>
+              <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-4">
+                <mdb-icon far icon="eye" class="text-info font-bold cursor-pointer" (click)="seeProject(project._id)"></mdb-icon>
+               </div>
+           </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
+

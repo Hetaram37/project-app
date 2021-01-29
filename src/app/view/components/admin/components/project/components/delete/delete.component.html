@@ -1,0 +1,64 @@
+<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12
+   container-space text-left ml-3 pr-0">
+   <button mdbBtn color="info" class="my-4" type="submit" (click)="getList()">Project list</button>
+  <table class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 table table-striped table-bordered p-0 mt-2" style="width: 95%;overflow-x: auto;">
+    <tbody *ngIf="projectDetail">
+      <tr>
+          <td>
+            Title
+          </td>
+          <td>
+            {{projectDetail.title}}
+          </td>
+      </tr>
+      <tr>
+          <td>
+            Company Name
+          </td>
+          <td>
+            {{projectDetail.company_name}}
+          </td>
+      </tr>
+      <tr>
+        <td>
+          Description
+        </td>
+        <td>
+            {{projectDetail.description}}
+        </td>
+    </tr>
+    <tr>
+        <td>
+          Cost
+        </td>
+        <td>
+            {{projectDetail.cost | currency}}
+        </td>
+    </tr>
+    <tr>
+        <td>
+          Duration
+        </td>
+        <td>
+            {{projectDetail.duration}}
+        </td>
+    </tr>
+    <tr>
+        <td>
+          Employees
+        </td>
+        <td>
+            {{projectDetail.employees}}
+        </td>
+    </tr>
+    </tbody>
+  </table>
+  <div class="text-center" *ngIf="projectDetail">
+    <button mdbBtn color="danger" class="my-4" type="submit" (click)="deleteProject()">Delete Project</button>
+  </div>
+
+  <div *ngIf="!projectDetail">
+      No project found
+  </div>
+</div>
+
