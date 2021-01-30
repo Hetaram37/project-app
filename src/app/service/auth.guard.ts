@@ -25,7 +25,7 @@ export class AuthGuard implements CanActivate {
         // Check whether the current time is past the
         // access token's expiry time
         const expiresAt = localStorage.getItem('exp_time');
-        const isExpired = new Date().toUTCString() < new Date(Number(expiresAt)).toUTCString();
+        const isExpired = new Date().toUTCString() < new Date(Number(expiresAt) * 1000).toUTCString();
         const userName = localStorage.getItem('userName');
         const accessToken = localStorage.getItem('token');
         let authenticated = false;
